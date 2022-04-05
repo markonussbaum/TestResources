@@ -10,8 +10,11 @@ time $SPARK_HOME/bin/spark-submit \
 	--executor-cores=1 \
 	--executor-memory=1G \
 	--driver-memory=1G \
+	--conf spark.driver.resource.ve.amount=1 \
+	--conf spark.driver.resource.ve.discoveryScript=/opt/spark/getVEsResources.sh \
 	--conf spark.executor.resource.ve.amount=2 \
 	--conf spark.executor.resource.ve.discoveryScript=/opt/spark/getVEsResources.sh \
+	--conf spark.task.resource.ve.amount=1 \
 	--conf spark.executorEnv.VE_OMP_NUM_THREADS=1 \
 	--conf spark.executorEnv.VEO_LOG_DEBUG=1 \
 	--conf spark.com.nec.spark.ncc.path=/opt/nec/ve/bin/ncc \

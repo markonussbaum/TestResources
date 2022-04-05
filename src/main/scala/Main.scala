@@ -10,9 +10,16 @@ object Main {
 
 		sc = setup()
 
-		//print_res()
+		val res = get_res()
+
+		// Note:
+		// This runs on the driver, so you need to request the use
+		// of the ve on the driver!
+		// (spark.driver.resource.ve.amount=1) & set discovery script
+		// otherwise the list will be empty...
 		println("=== RESOURCES ===")
-		get_res().foreach( println _)
+		println("#resources: " + res.length)
+		res.foreach( println _)
 	}
 
 	def setup(): SparkContext = {
